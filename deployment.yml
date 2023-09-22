@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-recommender
+  labels:
+    app: movie-recommender
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movie-recommender
+  template:
+    metadata:
+      labels:
+        app: movie-recommender
+    spec:
+      containers:
+      - name: movie-recommeder
+        image: pranit007/my-image
+        ports:
+        - containerPort: 8501
